@@ -32,8 +32,8 @@ Skooter Editor should run on any MSX1 and higher with at least 64KB RAM and a di
 - The code can be assembled using sjasmplus ( https://github.com/z00m128/sjasmplus )
 - I used the "MSX constants (EQUs) for assembly development by FRS" ( http://frs.badcoffee.info/tools.html ). These are public domain
 - Various resources and articles were used as a reference
--- http://map.grauw.nl/resources/msxbios.php
--- http://map.grauw.nl/articles/dos-error-handling.php
--- http://map.grauw.nl/articles/keymatrix.php
--- http://map.grauw.nl/resources/dos2_functioncalls.php
--- https://konamiman.github.io/MSX2-Technical-Handbook/md/Appendix1.html
+  - http://map.grauw.nl/resources/msxbios.php
+  - http://map.grauw.nl/articles/dos-error-handling.php
+  - http://map.grauw.nl/articles/keymatrix.php
+  - http://map.grauw.nl/resources/dos2_functioncalls.php
+  - https://konamiman.github.io/MSX2-Technical-Handbook/md/Appendix1.html
