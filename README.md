@@ -4,30 +4,24 @@ Skooter is a cute puzzle/action game for MSX made by Ronald Pieket Weeserik in 1
 Skooter Editor (SKOOTED) is a program in which you can create, play and share your own sheets.
 
 # How to run
-SKOOTED can be started from BASIC by typing in the code below:
-
+SKOOTED can be started from BASIC by typing in the code below:\
 BLOAD "SKOOTED.BIN",R
 
 SKOOTED requires a copy of a ROM-image of SKOOTER which must be located on the same disk (and directory) as SKOOTED. The filename has to be SKOOTER.ROM.
 
-There are many different releases of Skooter, but not all of them can be used with SKOOTED. SKOOTED works with versions that have one of the following CRC32 checksums:
-F9E0FB4C
+There are many different releases of Skooter, but not all of them can be used with SKOOTED. SKOOTED works with versions that have one of the following CRC32 checksums:\
+F9E0FB4C\
 5A67D705
 
 Most other versions of Skooter are very different from these ones and will not work.
 
 # How to control
-F1: Start the game from the current sheet (all sheets must be valid)
-
-F2: Enter the message editor
-
-F5: Clear sheet or messages
-
-Esc: Leave sheet editor, message editor, file selector
-
-Up/Down/Left/Right: Move cursor in sheet editor, message editor or selection in GUI
-
-Space: Perform action in GUI, select element in GUI or put element in sheet
+F1: Start the game from the current sheet (all sheets must be valid)\
+F2: Enter the message editor\
+F5: Clear sheet or messages\
+Esc: Leave sheet editor, message editor, file selector\
+Up/Down/Left/Right: Move cursor in sheet editor, message editor or selection in GUI\
+Space: Perform action in GUI, select element in GUI or put element in sheet\
 
 SKOOTED has limited support for joysticks. Fire button 1 works as Space, Fire button 2 works as Esc. It's not possible to enter a filename or edit the messages using a joystick.
 
