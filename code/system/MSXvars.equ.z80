@@ -1,0 +1,315 @@
+CGTABL	equ	#0004
+VDP.DR	equ	#0006
+VDP.DW	equ	#0007
+SYSINF1	equ	#002B
+				; b0-b3: character set
+				;        0 = Japanese
+				;        1 = International
+				;        2 = Korean
+				; b4-b6: date format
+				;        0 = Y-M-D
+				;        1 = M-D-Y
+				;        2 = D-M-Y
+				; b7   : 0=60Hz, 1=50Hz
+SYSINF2	equ	#002C
+				; b0-b3: keyboard type
+				;        0 = Japanese
+				;        1 = International
+				;        2 = French (AZERTY)
+				;        3 = UK
+				;        4 = German (DIN)
+				; b4-b7: Basic language
+				;        0 = Japanese
+				;        1 = International
+MSXVER	equ	#002D
+MIDINF	equ	#002E
+; Reserved	equ	#002F
+LOGOBOT	equ	#0002
+
+
+KANJI_AREA	equ	#F30F	; 4 bytes used by the Kanji driver. Unnoficial label name
+
+; DiskBIOS variables
+DISKVE	equ	#F323 ; DW, DiskBIOS1: Address of the disk error manipulator
+BREAKV 	equ	#F325 ; DW, DiskBIOS1: Address of the CTRL+C manipulator
+RAMAD0	equ	#F341 ; Slot address of RAM in page 0 (DOS)
+RAMAD1	equ	#F342 ; Slot address of RAM in page 1 (DOS)
+RAMAD2	equ	#F343 ; Slot address of RAM in page 2 (DOS/BASIC)
+RAMAD3	equ	#F344 ; Slot address of RAM in page 3 (DOS/BASIC)
+MASTERS	equ	#F348 ; Main DiskROM slot address
+
+; MainBIOS variables
+RDPRIM	equ	#F380
+WRPRIM	equ	#F385
+CLPRIM	equ	#F38C
+USRTAB	equ	#F39A
+; #F39C
+; #F39E
+; #F3A0
+; #F3A2
+; #F3A4
+; #F3A6
+; #F3A8
+; #F3AA
+; #F3AC
+LINL40	equ	#F3AE
+LINL32	equ	#F3AF
+LINLEN	equ	#F3B0
+CRTCNT	equ	#F3B1
+CLMLST	equ	#F3B2
+
+TXTNAM	equ	#F3B3
+TXTCOL	equ	#F3B5
+TXTCGP	equ	#F3B7
+TXTATR	equ	#F3B9
+TXTPAT	equ	#F3BB
+
+T32NAM	equ	#F3BD	; Copied to NAMBAS
+T32COL	equ	#F3BF
+T32CGP	equ	#F3C1	; Copied to CPGBAS
+T32ATR	equ	#F3C3	; Copied to ATRBAS
+T32PAT	equ	#F3C5	; Copied to PATBAS
+
+GRPNAM	equ	#F3C7
+GRPCOL	equ	#F3C9
+GRPCGP	equ	#F3CB
+GRPATR	equ	#F3CD
+GRPPAT	equ	#F3CF
+
+MLTNAM	equ	#F3D1
+MLTCOL	equ	#F3D3
+MLTCGP	equ	#F3D5
+MLTATR	equ	#F3D7
+MLTPAT	equ	#F3D9
+
+
+CLIKSW	equ	#F3DB
+CSRY	equ	#F3DC
+CSRX	equ	#F3DD
+CNSDFG	equ	#F3DE
+RG0SAV	equ	#F3DF
+RG1SAV	equ	#F3E0
+RG2SAV	equ	#F3E1
+RG3SAV	equ	#F3E2
+RG4SAV	equ	#F3E3
+RG5SAV	equ	#F3E4
+RG6SAV	equ	#F3E5
+RG7SAV	equ	#F3E6
+STATFL	equ	#F3E7
+TRGFLG	equ	#F3E8
+
+FORCLR	equ	#F3E9
+BAKCLR	equ	#F3EA
+BDRCLR	equ	#F3EB
+
+MAXUPD	equ	#F3EC
+MINUPD	equ	#F3EF
+ATRBYT	equ	#F3F2
+QUEUES	equ	#F3F3
+FRCNEW	equ	#F3F5
+SCNCNT	equ	#F3F6
+REPCNT	equ	#F3F7
+PUTPNT	equ	#F3F8
+GETPNT	equ	#F3FA
+CS1200	equ	#F3FC
+CS2400	equ	#F401
+LOW	equ	#F406
+HIGH	equ	#F408
+HEADER	equ	#F40A
+ASPCT1	equ	#F40B
+ASPCT2	equ	#F40D
+ENDPRG	equ	#F40F
+ERRFLG	equ	#F414
+LPTPOS	equ	#F415
+PRTFLG	equ	#F416
+NTMSXP	equ	#F417
+RAWPRT	equ	#F418
+VLZADR	equ	#F419
+VLZDAT	equ	#F41B
+CURLIN	equ	#F41C
+
+
+KBUF	equ	0F41FH	; DEFS 318	(Tokenized text)
+BUFMIN	equ	0F55DH	; DEFB ","	(BUF prefix)
+BUF	equ	0F55EH	; DEFS 259	(INLIN buffer, aka LINE INPUT)
+TTYPOS	equ	0F661h	; DEFB 0
+
+TEMPST	equ	0F67AH	; DEFS 30
+; FN & variable handling variables
+PRMSTK	equ	0F6E4H	; DEFW 0000H
+PRMLEN	equ	0F6E6H	; DEFW 0000H
+PARM1	equ	0F6E8H	; DEFS 100
+PRMPRV	equ	0F74CH	; DEFW F6E4H
+PRMLN2	equ	0F74EH	; DEFW 0000H
+PARM2	equ	0F750H	; DEFS 100
+PRMFLG	equ	0F7B4H	; DEFB 00H
+ARYTA2	equ	0F7B5H	; DEFW 0000H
+NOFUNS	equ	0F7B7H	; DEFB 00H
+TEMP9	equ	0F7B8H	; DEFW 0000H
+FUNACT	equ	0F7BAH	; DEFW 0000H
+SWPTMP	equ	0F7BCH	; DEFS 8
+TRCFLG	equ	0F7C4H	; DEFB 00H
+FBUFFR	equ	0F7C5H	; DEFS 43
+DECTMP	equ	0F7F0H	; DEFW 0000H
+DECTM2	equ	0F7F2H	; DEFW 0000H
+DECCNT	equ	0F7F4H	; DEFB 00H
+DAC	equ	0F7F6H	; DEFS 16
+HOLD8	equ	0F806H	; DEFS 65
+ARG	equ	0F847H	; DEFS 16
+RNDX	equ	0F857H	; DEFS 8
+
+FILNAM	equ	0F866H	; ds 11
+
+FNKSTR	equ	0F87Fh	; DEFS 160
+
+CGPNT	equ	0F91Fh	; Character set SlotID
+NAMBAS	equ	#F922	; current text mode VDP Name Table 
+CGPBAS	equ	#F924	; current text mode VDP Character Pattern Table
+PATBAS	equ	#F926	; current VDP Sprite Pattern Table
+ATRBAS	equ	#F928	; current VDP Sprite Attribute Table
+
+VOICAQ	equ	0F975H	; DEFS 128     ; Voice A queue
+VOICBQ	equ	0F9F5H	; DEFS 128     ; Voice B queue
+VOICCQ	equ	0FA75H	; DEFS 128     ; Voice C queue
+
+DPPAGE 	equ	0FAF5H 
+ACPAGE 	equ	0FAF6H
+
+
+
+AVCSAV	equ	0FAF7H	; DEFS 1 ; AV Control Board Save state.
+EXBRSA	equ	0FAF8H	; DEFS 1 ; Extended BIOS Sub-ROM slot Id. Save.
+CHRCNT	equ	0FAF9H	; DEFS 1 ; Character Counter.
+
+ROMA	equ	0FAFAH	; DEFS 2 ; "Romaji" to "kana" character buffer.
+MODE	equ	0FAFCH	; DEFS 1 ; "Romaji" to "kana" conversion Mode.
+NORUSE	equ	0FAFDH	; DEFS 1 ; Used by the "Kanji driver".
+XSAVE	equ	0FAFEH	; DEFW 0 ; Light-Pen X coordinate (internal use)
+XOFFS	equ	0FAFFh	; DEFB 1 ; Light pen X calibration offset
+YSAVE	equ	0FB00H	; DEFW 0 ; Light-Pen Y coordinate (internal use)
+YOFFS	equ	0FB01h	; DEFB 1 ; Light pen Y calibration offset
+LOGOPR	equ	0FB02H	; DEFS 1 ; VDP Logical Operation Code.
+RSTMP	equ	0FB03H	; DEFS 50      ; RS-232C and MSX-Disk Temporary work area.
+TOCNT	equ	0FB03H	; DEFS 1       ; Used by RS-232C access routines.
+RSFCB	equ	0FB04H	; DEFW 0       ; RS-232C address.
+RSIQLN	equ	0FB06H	; DEFS 1       ; Used by RS-232C access routines.
+MEXBIH	equ	0FB07H	; RST  30H
+				; DEFS 1       ; Byte datum.
+				; DEFS 1       ; (Low).
+				; DEFS 1       ; (High).
+				; RET
+OLDSTT	equ	0FB0CH	; RST  30H
+				; DEFS 1       ; Byte datum.
+				; DEFS 1       ; (Low).
+				; DEFS 1       ; (High).
+				; RET
+OLDINT	equ	0FB11H	; RST  30H
+				; DEFS 1       ; Byte datum.
+				; DEFS 1       ; (Low).
+				; DEFS 1       ; (High).
+				; RET
+DEVNUM	equ	0FB16H	; DEFS 1       ; Used by RS-232C access routines.
+DATCNT	equ	0FB17H	; DEFS 1       ; Data Counter (byte datum).
+				; DEFS 1       ; Byte pointer.
+				; DEFS 1       ; Byte pointer.
+ERRORS	equ	0FB1AH	; DEFS 1
+FLAGS	equ	0FB1BH	; DEFS 1
+ESTBLS	equ	0FB1CH	; DEFS 1
+COMMSK	equ	0FB1DH	; DEFS 1
+LSTCOM	equ	0FB1EH	; DEFS 1
+LSTMOD	equ	0FB1FH	; DEFS 1
+
+HOKVLD	equ	0FB20H	; DEFS 1 ; Used by the Extended BIOS ROM. 
+
+
+; #F920		db	1	; Character set address
+DRVTBL	equ	0FB21h
+; #FB22
+; #FB23
+; #FB24
+; #FB25
+; #FB26
+; #FB27
+; #FB28
+
+CLIKFL	equ	0FBD9h
+OLDKEY	equ	0FBDAh
+NEWKEY	equ	0FBE5h
+KEYBUF	equ	0FBF0h
+
+CASPRV	equ	0FCB1h
+
+EXPTBL	equ	0FCC1h
+; #FCC2
+; #FCC3
+; #FCC4
+SLTTBL	equ	0FCC5h
+; #FCC6
+; #FCC7
+; #FCC8
+SLTATR	equ	0FCC9h
+;    FCC9H SLTATR: DEFS 4       ; PS0, SS0
+;    FCCDH         DEFS 4       ; PS0, SS1
+;    FCD1H         DEFS 4       ; PS0, SS2
+;    FCD5H         DEFS 4       ; PS0, SS3
+;
+;    FCD9H         DEFS 4       ; PS1, SS0
+;    FCDDH         DEFS 4       ; PS1, SS1
+;    FCE1H         DEFS 4       ; PS1, SS2
+;    FCE5H         DEFS 4       ; PS1, SS3
+;
+;    FCE9H         DEFS 4       ; PS2, SS0
+;    FCEDH         DEFS 4       ; PS2, SS1
+;    FCF1H         DEFS 4       ; PS2, SS2
+;    FCF5H         DEFS 4       ; PS2, SS3
+;
+;    FCF9H         DEFS 4       ; PS3, SS0
+;    FCFDH         DEFS 4       ; PS3, SS1
+;    FD01H         DEFS 4       ; PS3, SS2
+;    FD05H         DEFS 4       ; PS3, SS3
+
+
+BOTTOM	equ	0FC48H	; DEFW 8000H
+HIMEM	equ	0FC4AH	; DEFW F380H
+
+INTFLG	equ	0FC9BH	; CTRL+STOP detected flag
+PADY	equ	0FC9CH	; Y coordinate of the last touchpad read
+PADX	equ	0FC9DH	; X coordinate of the last touchpad read
+JIFFY	equ	0FC9EH	; 16-bit Timer updated by the BIOS
+CSRSW	equ	0FCA9H	; Software cursor switch
+CSTYLE	equ	0FCAAH	; Cursor style
+CAPST	equ	0FCABH	; caps lock status: 00H=Off, NZ=On.
+KANAST	equ	0FCACH	; keyboard Kana lock status or DEAD key status
+KANAMD	equ	0FCADH
+FLBMEM	equ	0FCAEH
+SCRMOD	equ	0FCAFH
+OLDSCR	equ	0FCB0H
+
+SLTWRK	equ	0FD09H ; two bytes of local workspace for each of the
+		       ; sixty-four possible extension ROMs
+
+RG8SAV	equ	0FFE7H	; DEFS 1	"; VDP Register 8 Save copy."
+RG9SAV	equ	0FFE8H	; DEFS 1	"; VDP Register 9 Save copy."
+RG10SA	equ	0FFE9H	; DEFS 1	"; VDP Register 10 Save copy."
+RG11SA	equ	0FFEAH	; DEFS 1	"; VDP Register 11 Save copy."
+RG12SA	equ	0FFEBH	; DEFS 1	"; VDP Register 12 Save copy."
+RG13SA	equ	0FFECH	; DEFS 1	"; VDP Register 13 Save copy."
+RG14SA	equ	0FFEDH	; DEFS 1	"; VDP Register 14 Save copy."
+RG15SA	equ	0FFEEH	; DEFS 1	"; VDP Register 15 Save copy."
+RG16SA	equ	0FFEFH	; DEFS 1	"; VDP Register 16 Save copy."
+RG17SA	equ	0FFF0H	; DEFS 1	"; VDP Register 17 Save copy."
+RG18SA	equ	0FFF1H	; DEFS 1	"; VDP Register 18 Save copy."
+RG19SA	equ	0FFF2H	; DEFS 1	"; VDP Register 19 Save copy."
+RG20SA	equ	0FFF3H	; DEFS 1	"; VDP Register 20 Save copy."
+RG21SA	equ	0FFF4H	; DEFS 1	"; VDP Register 21 Save copy."
+RG22SA	equ	0FFF5H	; DEFS 1	"; VDP Register 22 Save copy."
+RG23SA	equ	0FFF6H	; DEFS 1	"; VDP Register 23 Save copy."
+ROMSLT	equ	0FFF7h	; DB 1		slot ID of the Main BIOS
+;FFF8H		"DEFS 2       ; Reserved for the system."
+RG25SA	equ	0FFFAH	; DEFS 1	"; VDP Register 25 Save copy."
+RG26SA	equ	0FFFBH	; DEFS 1	"; VDP Register 26 Save copy."
+RG27SA	equ	0FFFCH	; DEFS 1	"; VDP Register 27 Save copy."
+;FFFDH		"DEFS 2       ; Reserved for the system."
+
+SSLTREG	equ	#FFFF
+

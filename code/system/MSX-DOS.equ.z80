@@ -1,0 +1,119 @@
+BOOT		equ	0000h
+ DEFINE CPMBIOSPTR	0000h
+BDOS		equ	0005h
+DBUF		equ	0080h	; Default Disk Buffer
+TPA		equ	0100h
+CMDPRMCNT	equ	DBUF
+CMDLINSTR	equ	DBUF+1
+BDOSBAS		equ	0F37Dh
+
+
+; The two FCBs below are automatically parsed by the system from the
+; command-line, making the life easier for the programmer
+; Note: If both filenames are  to be  used then the second one must be
+; copied to a separate FCB elsewhere in memory  because it will be overwritten
+; when the first one is opened.
+
+FCB1		equ	005Ch
+FCB2		equ	006Ch
+
+
+
+
+; CP/M & MSX-DOS1 BDOS Functions
+_TERM0		equ	00H
+_CONIN		equ	01H
+_CONOUT		equ	02H
+_AUXIN		equ	03H
+_AUXOUT		equ	04H
+_LSTOUT		equ	05H
+_DIRIO		equ	06H
+_DIRIN		equ	07H
+_INNOE		equ	08H
+_STROUT		equ	09H
+_BUFIN		equ	0AH
+_CONST		equ	0BH
+_CPMVER		equ	0CH
+_DSKRST		equ	0DH
+_SELDSK		equ	0EH
+_FOPEN		equ	0FH
+_FCLOSE		equ	10H
+_SFIRST		equ	11H
+_SNEXT		equ	12H
+_FDEL		equ	13H
+_RDSEQ		equ	14H
+_WRSEQ		equ	15H
+_FMAKE		equ	16H
+_FREN		equ	17H
+_LOGIN		equ	18H
+_CURDRV		equ	19H
+_SETDTA		equ	1AH
+_ALLOC		equ	1BH
+_RDRND		equ	21H
+_WRRND		equ	22H
+_FSIZE		equ	23H
+_SETRND		equ	24H
+_WRBLK		equ	26H
+_RDBLK		equ	27H
+_WRZER		equ	28H
+_GDATE		equ	2AH
+_SDATE		equ	2BH
+_GTIME		equ	2CH
+_STIME		equ	2DH
+_VERIFY		equ	2EH
+_RDABS		equ	2FH
+_WRABS		equ	30H
+_DPARM		equ	31H
+
+
+; MSX-DOS2 BDOS Functions
+_FFIRST		equ	40H
+_FNEXT		equ	41H
+_FNEW		equ	42H
+_OPEN		equ	43H
+_CREATE		equ	44H
+_CLOSE		equ	45H
+_ENSURE		equ	46H
+_DUP		equ	47H
+_READ		equ	48H
+_WRITE		equ	49H
+_SEEK		equ	4AH
+_IOCTL		equ	4BH
+_HTEST		equ	4CH
+_DELETE		equ	4DH
+_RENAME		equ	4EH
+_MOVE		equ	4FH
+_ATTR		equ	50H
+_FTIME		equ	51H
+_HDELETE	equ	52H
+_HRENAME	equ	53H
+_HMOVE		equ	54H
+_HATTR		equ	55H
+_HFTIME		equ	56H
+_GETDTA		equ	57H
+_GETVFY		equ	58H
+_GETCD		equ	59H
+_CHDIR		equ	5AH
+_PARSE		equ	5BH
+_PFILE		equ	5CH
+_CHKCHR		equ	5DH
+_WPATH		equ	5EH
+_FLUSH		equ	5FH
+_FORK		equ	60H
+_JOIN		equ	61H
+_TERM		equ	62H
+_DEFAB		equ	63H
+_DEFER		equ	64H
+_ERROR		equ	65H
+_EXPLAIN	equ	66H
+_FORMAT		equ	67H
+_RAMD		equ	68H
+_BUFFER		equ	69H
+_ASSIGN		equ	6AH
+_GENV		equ	6BH
+_SENV		equ	6CH
+_FENV		equ	6DH
+_DSKCHK		equ	6EH
+_DOSVER		equ	6FH
+_REDIR		equ	70H
+
