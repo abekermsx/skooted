@@ -5,6 +5,7 @@ Skooter Editor (SKOOTED) is a program in which you can create, play and share yo
 
 # How to run
 SKOOTED can be started from BASIC by typing in the code below:
+
 BLOAD "SKOOTED.BIN",R
 
 SKOOTED requires a copy of a ROM-image of SKOOTER which must be located on the same disk (and directory) as SKOOTED. The filename has to be SKOOTER.ROM.
@@ -17,10 +18,15 @@ Most other versions of Skooter are very different from these ones and will not w
 
 # How to control
 F1: Start the game from the current sheet (all sheets must be valid)
+
 F2: Enter the message editor
+
 F5: Clear sheet or messages
+
 Esc: Leave sheet editor, message editor, file selector
+
 Up/Down/Left/Right: Move cursor in sheet editor, message editor or selection in GUI
+
 Space: Perform action in GUI, select element in GUI or put element in sheet
 
 SKOOTED has limited support for joysticks. Fire button 1 works as Space, Fire button 2 works as Esc. It's not possible to enter a filename or edit the messages using a joystick.
