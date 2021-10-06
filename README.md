@@ -1,13 +1,13 @@
 # Skooter Editor
 Skooter is a cute puzzle/action game for MSX made by Ronald Pieket Weeserik in 1987. It features 16 levels (which are called sheets in Skooter) in which the player has to collect all the fruits and avoid contact with the enemies.
 
-Skooter Editor (SKOOTED) is a program in which you can create, play and share your own sheets.
+Skooter Editor (SKOOTED) is a program in which you can create, play and share your own sheets. Download 
 
 # How to run
+Download the release from https://github.com/abekermsx/skooted/releases/tag/v1.0 and copy SKOOTED.BIN to your MSX. 
+
 SKOOTED can be started from BASIC by typing in the code below:\
 BLOAD "SKOOTED.BIN",R
-
-SKOOTED requires a copy of a ROM-image of SKOOTER which must be located on the same disk (and directory) as SKOOTED. The filename has to be SKOOTER.ROM.
 
 There are many different releases of Skooter, but not all of them can be used with SKOOTED. SKOOTED works with versions that have one of the following CRC32 checksums:\
 F9E0FB4C\
