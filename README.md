@@ -6,16 +6,17 @@ Skooter Editor (SKOOTED) is a program in which you can create, play and share yo
 # How to run
 Download the release from https://github.com/abekermsx/skooted/releases/tag/v1.0 and copy SKOOTED.BIN to your MSX. 
 
-SKOOTED can be started from BASIC by typing in the code below:\
-BLOAD "SKOOTED.BIN",R
-
 SKOOTED requires a copy of a ROM-image of SKOOTER which must be located on the same disk (and directory) as SKOOTED. The filename has to be SKOOTER.ROM.
 
 There are many different releases of Skooter, but not all of them can be used with SKOOTED. SKOOTED works with versions that have one of the following CRC32 checksums:\
 F9E0FB4C\
-5A67D705
+5A67D705\
+53B87DEB
 
 Most other versions of Skooter are very different from these ones and will not work.
+
+SKOOTED can be started from BASIC by typing in the code below:\
+BLOAD "SKOOTED.BIN",R
 
 # How to control
 F1: Start the game from the current sheet (all sheets must be valid)\

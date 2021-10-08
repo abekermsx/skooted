@@ -58,6 +58,8 @@ entry:
         or a
         jr nz,terminate
 
+        call init_skooter
+
         ld hl,FNKSTR
         ld bc,160
         call fill_ram
@@ -93,7 +95,6 @@ skooter_not_found_message:
 
 
         include "helpers.asm"
-        include "skooter.asm"
 
         include "file/error-handling.asm"
         include "file/fcb.asm"
@@ -111,6 +112,11 @@ skooter_not_found_message:
         include "sheet/player.asm"
         include "sheet/sheet.asm"
         include "sheet/text.asm"
+
+        include "skooter/init.asm"
+        include "skooter/patches.asm"
+        include "skooter/run.asm"
+
 
 ; Skooter uses RAM in $c000-$cbff (approximately), ensure all code from main_loop onwards isn't overwritten
         ASSERT main_loop >= $cc00
