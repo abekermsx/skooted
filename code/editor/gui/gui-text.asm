@@ -65,7 +65,7 @@ gui_text_loop:
 gui_text_up:
         ld a,d
         dec a
-        cp 3
+        cp 1
         jr nz,gui_text_update_y
         ld a,23
 gui_text_update_y:
@@ -92,7 +92,7 @@ gui_text_down:
         inc a
         cp 24
         jr c,gui_text_update_y
-        ld a,4
+        ld a,2
         jr gui_text_update_y
 
 
@@ -151,7 +151,7 @@ gui_text_clear:
         ld a,' '
         ld (gui_text_character),a
         
-        ld hl,4 * 256 + 0
+        ld hl,2 * 256 + 0
         ld (gui_text_xy),hl
         jr gui_text_wait_release2
 
@@ -179,7 +179,7 @@ gui_text_input_character:
         ld a,h
         cp 24
         jr c,gui_text_input_character2
-        ld h,4
+        ld h,2
 gui_text_input_character2:
         ld (gui_text_xy),hl
         jp gui_text_wait_release
@@ -224,7 +224,7 @@ gui_text_input_character_enter:
         inc a
         cp 24
         jr c,gui_text_input_character_enter1
-        ld a,4
+        ld a,2
 gui_text_input_character_enter1:
         ld h,a
         ld l,0

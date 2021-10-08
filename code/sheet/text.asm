@@ -15,9 +15,9 @@ update_sheet_text:
 ; Converts the screen to a series of text messages
 ; Out: BC: messages length
 text_to_messages:
-        ld hl,6144 + 4 * 32
+        ld hl,6144 + 2 * 32
         ld de,sheet_message
-        ld bc,(24 - 4) * 256 + 4
+        ld bc,(24 - 2) * 256 + 2
 
 text_to_messages_line:
         push bc

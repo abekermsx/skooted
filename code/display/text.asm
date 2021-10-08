@@ -31,8 +31,8 @@ initialize_text_gui:
 
 
 clear_text_area:
-        ld hl,6144 + 4 * 32
-        ld bc,32 * 20
+        ld hl,6144 + 2 * 32
+        ld bc,32 * 22
         ld a,' '
         call FILVRM
         ret
@@ -121,7 +121,7 @@ text_update_info1:
         pop hl
 
         ld a,h
-        sub 3
+        dec a
         ld l,a
         ld h,0
         ld de,text_info_data + 8
