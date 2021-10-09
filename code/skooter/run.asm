@@ -18,7 +18,7 @@ run_skooter:
         ld (SP_backup),sp
 
         ld hl,($4002)
-	    jp (hl)
+		jp (hl)
 
 end_skooter:
         di
