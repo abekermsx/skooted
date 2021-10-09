@@ -4,7 +4,7 @@ Skooter is a cute puzzle/action game for MSX made by Ronald Pieket Weeserik in 1
 Skooter Editor (SKOOTED) is a program in which you can create, play and share your own sheets.
 
 # How to run
-Download the release from https://github.com/abekermsx/skooted/releases/tag/v1.0 and copy SKOOTED.BIN to your MSX. 
+Download the release from https://github.com/abekermsx/skooted/releases/tag/v1.1 and copy SKOOTED.BIN to your MSX. 
 
 SKOOTED requires a copy of a ROM-image of SKOOTER which must be located on the same disk (and directory) as SKOOTED. The filename has to be SKOOTER.ROM.
 
