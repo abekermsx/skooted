@@ -120,9 +120,8 @@ text_update_info1:
         call unsigned_int_to_ascii2
         pop hl
 
-        ld a,h
-        dec a
-        ld l,a
+        ld l,h
+        dec l
         ld h,0
         ld de,text_info_data + 8
         call unsigned_int_to_ascii2

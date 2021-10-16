@@ -84,13 +84,15 @@ fill_pattern_walkable:
         ret
 
 fill_pattern_buffer:
-        ld (pattern_buffer + 0),a
+        ld l,a
         inc a
-        ld (pattern_buffer + 1),a
+        ld h,a
+        ld (pattern_buffer),hl
         add a,31
-        ld (pattern_buffer + 2),a
+        ld l,a
         inc a
-        ld (pattern_buffer + 3),a
+        ld h,a
+        ld (pattern_buffer + 2),hl
         ret
 
 fill_pattern_enemy:
@@ -118,6 +120,8 @@ output_pattern:
         ret
 
 
+; Output the pattern buffer to VRAM
+; In: HL: VRAM address
 output_pattern_buffer:
         ld a,(pattern_buffer + 0)
         call WRTVRM

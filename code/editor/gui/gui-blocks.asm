@@ -100,8 +100,8 @@ gui_blocks_hide_pattern:
         ld (pattern_buffer),hl
         ld (pattern_buffer + 2),hl
         
-        ld hl,4 * 256 + 12
-        ld de,(block_x)
+        ld de,4 * 256 + 12
+        ld hl,(block_x)
         add hl,de
         ex de,hl
         call calculate_tile_vram_address

@@ -70,26 +70,36 @@ move_sheet_data:
         or a
         sbc hl,bc       ; HL: The old address of the next sheet
 
-        push hl
-        ld hl,$8000
-        sbc hl,de
-
         ld a,b
         and 128
         jr z,move_sheet_data_expand
 
 move_sheet_data_shrink:
+        push hl
+
+        ld hl,SKOOTER.SHEETS + 6144
+        sbc hl,de
         ld c,l
         ld b,h
+        
         pop hl
         ldir 
         ret
 
 move_sheet_data_expand:
+        push hl
+        push de
+
+        ex de,hl
+        ld hl,SKOOTER.SHEETS + 6144
+        sbc hl,de
         sbc hl,bc
         ld c,l
         ld b,h
+
+        pop de
         pop hl
+
         add hl,bc
         dec hl
         ex de,hl
@@ -107,7 +117,7 @@ copy_message_to_sheet:
         ld de,SHEET.TEXT
         add hl,de
         ex de,hl
-        ld hl,sheet_message
+        ld hl,sheet_message_compacted
         ldir
         ret
 

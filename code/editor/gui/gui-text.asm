@@ -99,18 +99,14 @@ gui_text_down:
 gui_text_right:
         ld a,e
         inc a
-        cp 32
-        jr c,gui_text_update_x
-        xor a
 gui_text_update_x:
+        and 31
         ld (gui_text_x),a
         jr gui_text_wait_release
 
 gui_text_left:
         ld a,e
-        sub 1
-        jr nc,gui_text_update_x
-        ld a,31
+        dec a
         jr gui_text_update_x
 
 
@@ -190,11 +186,21 @@ gui_text_input_character_backspace:
         ld a,(gui_text_character)
         call gui_text_display_character
         dec e
-        ld a,e
-        cp 255
-        jp z,gui_text_wait_release2     ; maybe implement delete on previous line?
+        jp m,gui_text_input_character_backspace_previous_line
         ld (gui_text_xy),de
         jr gui_text_input_character_delete2
+
+gui_text_input_character_backspace_previous_line:
+        ld e,31
+        dec d
+        ld a,d
+        cp 2
+        jr nc,gui_text_input_character_backspace_previous_line1
+        ld d,23
+gui_text_input_character_backspace_previous_line1:
+        ld (gui_text_xy),de
+        jr gui_text_input_character_delete2
+
 
 gui_text_input_character_space:
         ld a,' '

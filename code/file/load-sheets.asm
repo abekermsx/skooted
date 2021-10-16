@@ -1,6 +1,4 @@
 
-; TODO: simplify by loading the whole file at once
-; TODO: add support for loading texts
 
 load_sheets:
         call open_file

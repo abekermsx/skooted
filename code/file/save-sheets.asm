@@ -1,7 +1,4 @@
 
-; TODO: simplify by saving the whole file at once
-; TODO: add support for saving texts
-
 save_sheets:
         call clear_fcb
 

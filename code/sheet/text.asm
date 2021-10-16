@@ -16,9 +16,15 @@ update_sheet_text:
 ; Out: BC: messages length
 text_to_messages:
         ld hl,6144 + 2 * 32
-        ld de,sheet_message
-        ld bc,(24 - 2) * 256 + 2
+        ld de,sheet_message_raw
+        ld bc,(24 - 2) * 32
+        push de
+        call LDIRMV
+        pop hl
 
+        ld de,sheet_message_compacted
+        ld bc,(24 - 2) * 256 + 2
+        
 text_to_messages_line:
         push bc
         call text_line_to_message
@@ -31,7 +37,7 @@ text_to_messages_line:
         inc de
 
         ex de,hl
-        ld de,sheet_message
+        ld de,sheet_message_compacted
         or a
         sbc hl,de
 
@@ -43,7 +49,7 @@ text_line_to_message:
         ld b,32
 
 text_line_to_message_loop:
-        call RDVRM
+        ld a,(hl)
         cp ' '
         jr nz,text_line_to_message_append
         inc hl
@@ -60,7 +66,7 @@ text_line_to_message_append:
         inc de
 
 text_line_to_message_append_character:
-        call RDVRM
+        ld a,(hl)
         ld (de),a
         inc hl
         inc de
@@ -106,4 +112,5 @@ compact_sheet_texts_loop:
         ret
 
 
-sheet_message:  equ $c000
+sheet_message_raw:  equ $c000
+sheet_message_compacted: equ $c400

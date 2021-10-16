@@ -4,10 +4,10 @@ load_file:
         add a,a
         add a,a
         add a,a
-        ld e,a
-        ld d,0
-        ld hl,found_files
-        add hl,de
+
+        ASSERT (found_files and 255) = 0
+        ld h,found_files / 256
+        ld l,a
 
         push hl
         

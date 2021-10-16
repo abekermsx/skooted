@@ -99,7 +99,7 @@ gui_file_select_show_file_name:
         call initialize_gui_rows
 
         ld hl,(file_listing)
-        ld de,6144 + 6 * 32 +24
+        ld de,6144 + 6 * 32 + 24
         call initialize_gui_rows
         ret
 

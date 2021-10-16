@@ -77,9 +77,9 @@ hide_heart:
         
 update_character:
         ld e,a
-        ld d,0
-        add hl,de
         xor a
+        ld d,a
+        add hl,de
         call WRTVRM
         ret
 
