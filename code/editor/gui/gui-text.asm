@@ -135,7 +135,6 @@ gui_text_has_free_space:
         ret
 
 gui_text_update_sheet:
-        ld de,(gui_text_xy)
         call gui_text_show_character
 
         call update_sheet_text
@@ -182,7 +181,6 @@ gui_text_input_character2:
 
 
 gui_text_input_character_backspace:
-        ld de,(gui_text_xy)
         ld a,(gui_text_character)
         call gui_text_display_character
         dec e
@@ -261,8 +259,6 @@ gui_text_update_info:
 
 
 gui_text_blink_character:
-        ld de,(gui_text_xy)
-
         ld a,(JIFFY)
         bit 3,a
         ld a,255

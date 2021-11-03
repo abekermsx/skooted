@@ -46,7 +46,7 @@ remove_objects:
         ld hl,(sheet_pointer)
         ld bc,SHEET.ITEMS
         add hl,bc
-        ld bc,3 * 8
+        ld c,3 * 8
         ld a,255
         call fill_ram
         ret

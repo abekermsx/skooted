@@ -138,8 +138,7 @@ calculate_message_size_change:
         sbc hl,de   ; length of the current text
 
         push bc
-        push hl
-        pop de
+        ex de,hl
         pop hl
         sbc hl,de   ; change in text size
         ld b,h

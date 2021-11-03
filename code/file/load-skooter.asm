@@ -12,8 +12,8 @@ load_skooter:
         
         ld hl,$8000
         ld de,$4000
-        push de
-        pop bc
+        ld b,d
+        ld c,e
         ldir
         
         call load_block

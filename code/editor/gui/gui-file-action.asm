@@ -52,9 +52,10 @@ gui_file_action_leave_up:
         ret
 
 gui_file_action_toggle:
-        ld a,(file_action)
+        ld hl,file_action
+        ld a,(hl)
         xor 1
-        ld (file_action),a
+        ld (hl),a
 
         ld hl,gui_file_action_blink_action
         call wait_release

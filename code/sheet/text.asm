@@ -65,12 +65,9 @@ text_line_to_message_append:
         ld (de),a       ; Set the Y position of the string
         inc de
 
-text_line_to_message_append_character:
-        ld a,(hl)
-        ld (de),a
-        inc hl
-        inc de
-        djnz text_line_to_message_append_character
+        ld c,b
+        ld b,0
+        ldir
 
 text_line_to_message_trim:
         dec de

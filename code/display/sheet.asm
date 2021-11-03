@@ -53,9 +53,9 @@ fill_pattern_non_walkable:
         rrca
         rrca
         rrca
-        rrca
+;        rrca
         
-        add a,a
+;        add a,a
         add a,128 + 64
         call fill_pattern_buffer
 

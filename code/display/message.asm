@@ -12,7 +12,6 @@ display_message:
         ld c,a
         ld b,$18
 
-        inc a
         ld a,(de)
         ld l,a
         ld h,0
